@@ -1,32 +1,11 @@
-const fs =require("fs");
+// const fs = require("fs");
 
-const http= require("http");
+// fs.writeFileSync('read.txt','welcome bro') //create file
 
-const server = http.createServer();
+// fs.appendFileSync('read.txt','kese hai aap log') //update
+// const buf=fs.readFileSync('read.txt',"utf8") // read file
+// console.log(buf)
 
-server.on('request', (req,res)=>{
-//     fs.readFile('inuput.txt',(err,data)=>{
-//         if(err) return console.error(err);
-//         res.end(data.toString());
-//     })
-const rstream =fs.createReadStream('inuput.txt')
+// fs.unlinkSync('read.text')
 
 
-rstream.on('data', (chunkdata)=>{
-    res.write(chunkdata)
-});
-
-rstream.on('end',()=>{
-    res.end();
-});
-
-rstream.on('error',(err)=>{
-    console.log(err);
-    res.end('file not found')
-})
-
-
-});
-
-
-server.listen(8000,'127.0.0.1')
